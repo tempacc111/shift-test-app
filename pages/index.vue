@@ -5,7 +5,11 @@
       <app-button text="Add shift"></app-button>
     </div>
 
-    <vacancy></vacancy>
+    <vacancy
+      v-for="vacancy in vacancies"
+      :vacancy="vacancy"
+      :key="vacancy.id"
+    ></vacancy>
   </div>
 </template>
 <script>
@@ -14,5 +18,10 @@ import vacancy from '../components/vacancy.vue'
 export default {
   components: { vacancy, AppButton },
   name: 'IndexPage',
+  computed: {
+    vacancies() {
+      return this.$store.state.vacancies
+    },
+  },
 }
 </script>
