@@ -47,23 +47,20 @@ export const state = () => ({
 })
 
 export const getters = {
-  getCounter(state) {
-    return state.counter
+  getVacancies(state) {
+    return state.vacancies
   },
 }
 
 export const mutations = {
-  increment(state) {
-    state.counter++
+  ADD_VACANCY(state, payload) {
+    state.vacancies.push(payload)
   },
-}
-
-export const actions = {
-  async fetchCounter({ state }) {
-    // make request
-    const res = { data: 10 }
-    state.counter = res.data
-    return res.data
+  EDIT_VACANCY(state, payload) {
+    state.vacancies = [
+      ...state.vacancies.filter((element) => element.id !== payload.id),
+      payload,
+    ]
   },
 }
 

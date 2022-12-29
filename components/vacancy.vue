@@ -22,6 +22,9 @@
         <div>{{ shift.price }}</div>
       </div>
     </div>
+    <div class="px-4 py-5 sm:px-6" v-if="!vacancy.dates">
+      <h4 class="font-medium leading-6">No dates added</h4>
+    </div>
   </div>
 </template>
 

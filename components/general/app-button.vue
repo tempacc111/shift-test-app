@@ -1,7 +1,7 @@
 <template>
   <button
     class="h-10 px-10 font-semibold rounded-md bg-black text-white"
-    type="submit"
+    @click="onClickHandler"
   >
     {{ text }}
   </button>
@@ -14,6 +14,11 @@ export default {
     text: {
       default: '',
       type: String,
+    },
+  },
+  methods: {
+    onClickHandler() {
+      this.$emit('click')
     },
   },
 }
